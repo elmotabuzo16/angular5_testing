@@ -8,24 +8,13 @@ import { CoursesService } from './courses.service';
     //this will render the app.component.html using <courses></courses>
     //<h2 [textContent]="title" />
     template: `
-        <div (click)="onDivClicked()">
-            <button (click)="onSave($event)" class="btn btn-primary">Save</button>
-        </div>
+        <input #email (keyup.enter)="onKeyUp(email.value)" />
         ` 
 })
 
 // we need to export the class in order to see it in angular
 export class CoursesComponent {
-    onDivClicked() {
-        console.log("Div was clicked");
-
+    onKeyUp(email) {
+        console.log(email);
     }
-
-    onSave($event) {
-        //This will remove the logs at the top "Div was clicked"
-        $event.stopPropagation();
-        
-        console.log("Button was clicked", $event);
-    }
-  
 }
