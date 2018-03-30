@@ -6,6 +6,7 @@ import { CoursesService } from './courses.service';
     selector: 'courses', // <div class="courses" will be ".courses"
 
     //this will render the app.component.html using <courses></courses>
+    //<h2 [textContent]="title" />
     template: `
         <h2>{{ title }}</h2>
         <ul>
@@ -13,6 +14,12 @@ import { CoursesService } from './courses.service';
                 {{ course }}
             </li>
         </ul>
+
+        <table>
+            <tr>
+                <td [attr.colspan]="colSpan">Sample of Attribute Binding</td>
+            </tr>
+        </table>
         ` 
 })
 
@@ -20,6 +27,7 @@ import { CoursesService } from './courses.service';
 export class CoursesComponent {
     title = "List of Courses";
     courses;
+    colSpan = 2;
 
     //Auto instantiate the CoursesService
     //After this, add the CoursesSerivce in provider[] under app.module.ts
