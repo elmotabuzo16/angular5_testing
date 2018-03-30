@@ -8,7 +8,7 @@ import { CoursesService } from './courses.service';
     //this will render the app.component.html using <courses></courses>
     //<h2 [textContent]="title" />
     template: `
-        <button class="btn btn-primary" [class.active]="isActive">Save</button>
+        <button class="btn btn-primary" [style.backgroundColor]="isActive ? 'blue' : 'white'">Save</button>
         ` 
 })
 
