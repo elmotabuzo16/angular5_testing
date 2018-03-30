@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CoursesService } from './courses.service';
 
 //decorator function
 @Component({
@@ -18,5 +19,12 @@ import { Component } from '@angular/core';
 // we need to export the class in order to see it in angular
 export class CoursesComponent {
     title = "List of Courses";
-    courses = ["course1", "course2", "course3"];
+    courses;
+
+    //Auto instantiate the CoursesService
+    //After this, add the CoursesSerivce in provider[] under app.module.ts
+    //Singleton
+    constructor(service: CoursesService) {
+         this.courses = service.getCourses();
+    }
 }
