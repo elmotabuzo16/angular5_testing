@@ -8,11 +8,24 @@ import { CoursesService } from './courses.service';
     //this will render the app.component.html using <courses></courses>
     //<h2 [textContent]="title" />
     template: `
-        <button class="btn btn-primary" [style.backgroundColor]="isActive ? 'blue' : 'white'">Save</button>
+        <div (click)="onDivClicked()">
+            <button (click)="onSave($event)" class="btn btn-primary">Save</button>
+        </div>
         ` 
 })
 
 // we need to export the class in order to see it in angular
 export class CoursesComponent {
-    isActive = true;
+    onDivClicked() {
+        console.log("Div was clicked");
+
+    }
+
+    onSave($event) {
+        //This will remove the logs at the top "Div was clicked"
+        $event.stopPropagation();
+        
+        console.log("Button was clicked", $event);
+    }
+  
 }
