@@ -8,10 +8,11 @@ import { CoursesService } from './courses.service';
     //this will render the app.component.html using <courses></courses>
     //<h2 [textContent]="title" />
     template: `
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary" [class.active]="isActive">Save</button>
         ` 
 })
 
 // we need to export the class in order to see it in angular
 export class CoursesComponent {
+    isActive = true;
 }
